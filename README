@@ -18,3 +18,7 @@ dstat -a -M proccount
 == Plugins ==
 
 proccount - shows the total number of current processes.
+
+memcache_hits - shows the total "get" hits and misses.
+                This is an absolute number, not an incremental
+                difference between runs.
