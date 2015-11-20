@@ -4,7 +4,7 @@
 
 > -- From the Debian dstat manpage
 
-## Deprecation - 2015/11/20 ## 
+## Deprecation - 2015/11/20 ##
 
 There are now plugins equivalent to the ones in this repo
 inside dstat itself and so these should be considered deprecated.
