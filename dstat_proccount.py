@@ -1,16 +1,17 @@
-### Dstat Display Process Count plugin
-### Displays the number of processes on a machine
-###
 ### Authority: dean.wilson@gmail.com
 
-class dstat_proccount(dstat):
-    def __init__(self):
-        self.name   = 'Tot Procs'
-        self.format = ('d', 8, 100)
-        self.nick   = ('num procs',)
-        self.vars   = ('procs',)
+class dstat_plugin(dstat):
+    """
+    Dstat Display Process Count plugin
+    Displays the number of processes on a machine
+    """
 
-        self.init(self.vars, 1)
+    def __init__(self):
+        self.name = 'procs'
+        self.vars = ('total',)
+        self.type = 'd'
+        self.width = 5
+        self.scale = 10
 
     def check(self):
         try:
@@ -22,4 +23,4 @@ class dstat_proccount(dstat):
 
     def extract(self):
         total = subprocess.Popen("ps -efwww | wc", shell=True, stdout=subprocess.PIPE).communicate()[0]
-        self.val['procs'] = int( total.split()[0] )
+        self.val['total'] = int( total.split()[0] )
